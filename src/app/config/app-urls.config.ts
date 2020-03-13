@@ -1,5 +1,18 @@
 export const AppURl = {
     AppRoot: '',
     AppHome: 'home',
-    AppHome2: 'home2'
+
+    // Info
+    AppInfo: 'info',
+    AppInfoRoot: '',
+    AppContact: 'contact',
+    AppContactOne: 'one',
+    AppContactTwo: 'two',
+    AppAbout: 'about',
+
+    //SuperHero
+    AppSuperHero: 'super-hero',
+    AppSuperHeroRoot: '',
+    AppSuperHeroList: 'list',
+    AppSuperHeroDetail: 'detail/:id'
 }

@@ -1,3 +1,4 @@
+import { MenuComponent } from './components/menu/menu.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NgModule } from '@angular/core';
@@ -9,7 +10,8 @@ import { CoreRoutingModule } from './core-routing.module';
 @NgModule({
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MenuComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { CoreRoutingModule } from './core-routing.module';
   ],
   exports: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MenuComponent
   ]
 })
 export class CoreModule { }
