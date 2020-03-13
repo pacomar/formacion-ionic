@@ -5,7 +5,8 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatSliderModule } from '@angular/material/slider';
 import { HomePage } from './pages/home/home.page';
 
 @NgModule({
@@ -18,7 +19,9 @@ import { HomePage } from './pages/home/home.page';
         path: '',
         component: HomePage
       }
-    ])
+    ]),
+    NgbCarouselModule,
+    MatSliderModule
   ],
   declarations: [HomePage, UnoComponent, DosComponent]
 })

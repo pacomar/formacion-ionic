@@ -1,3 +1,11 @@
-.active-route{
-    color: red;
+:host {
+    float: left;
+    display: block;
+    margin-top: 0;
+    width: 300px;
+    background: darkorange;
+    height: calc(100% - 140px);
+    .active-route {
+        color: red;
+    }
 }

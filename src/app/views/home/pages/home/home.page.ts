@@ -1,16 +1,24 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  OnDestroy,
+  ViewChild
+} from '@angular/core';
 import { DosComponent } from '../../components/dos/dos.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  styleUrls: ['home.page.scss']
 })
 export class HomePage implements OnInit, AfterViewInit, OnDestroy {
   p1: number = undefined;
   p2: number = 3;
 
-  @ViewChild(DosComponent, {static: true}) component2: DosComponent;
+  @ViewChild(DosComponent, { static: true }) component2: DosComponent;
+
+  images = [944, 1011, 984].map(n => `https://picsum.photos/id/${n}/900/500`);
 
   constructor() {}
 

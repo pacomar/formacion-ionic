@@ -1,4 +1,6 @@
-.content{
-    margin-top: 30px;
-    margin-left: 100px;
+.content {
+    float: left;
+    display: block;
+    padding: 20px;
+    height: calc(100% - 140px);
 }

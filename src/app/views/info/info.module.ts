@@ -5,9 +5,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InfoRoutingModule } from './info-routing.module';
 import { ContactOnePageComponent } from './pages/contact-one-page/contact-one-page.component';
-import {CardModule} from 'primeng/card';
-
-
+import { CardModule } from 'primeng/card';
+import { ColorPickerModule } from 'primeng/colorpicker';
 
 @NgModule({
   declarations: [
@@ -16,11 +15,7 @@ import {CardModule} from 'primeng/card';
     ContactOnePageComponent,
     ContactTwoPageComponent
   ],
-  imports: [
-    CommonModule,
-    InfoRoutingModule,
-    CardModule
-  ],
+  imports: [CommonModule, InfoRoutingModule, CardModule, ColorPickerModule],
   providers: []
 })
-export class InfoModule { }
+export class InfoModule {}
