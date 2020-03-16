@@ -1,3 +1,12 @@
 <p>
   supe-hero-list-page works!
 </p>
+<div *ngIf="heroes">
+  <ul>
+    <li *ngFor="let hero of heroes" (click)="goToDetail(hero.id)">{{hero.name}}</li>
+  </ul>
+</div>
+
+<button (click)="goToDetail(1)">navigate</button>
+
+{{heroes}}
