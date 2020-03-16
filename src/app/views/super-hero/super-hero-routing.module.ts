@@ -6,14 +6,14 @@ import { AppURl } from 'src/app/config/app-urls.config';
 
 const routes: Routes = [
   { path: AppURl.AppSuperHeroRoot, redirectTo: AppURl.AppSuperHeroList, pathMatch: 'full' },
-  { path: AppURl.AppSuperHeroList, component: SupeHeroListPageComponent},
-  { path: AppURl.AppSuperHeroDetail, component: SupeHeroDetailPageComponent}
+  { path: AppURl.AppSuperHeroList, component: SupeHeroListPageComponent },
+  { path: AppURl.AppSuperHeroDetail, component: SupeHeroDetailPageComponent }
 ];
 
 @NgModule({
   imports: [
     RouterModule.forChild(routes)
   ],
-  exports: [RouterModule]
+  exports: []
 })
 export class SuperHeroRoutingModule { }

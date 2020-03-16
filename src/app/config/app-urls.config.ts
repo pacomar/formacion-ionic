@@ -2,6 +2,14 @@ export const AppURl = {
     AppRoot: '',
     AppHome: 'home',
 
+    // auth
+    AppAuth: 'auth',
+    AppAuthRoot: '',
+    AppAuthSignIn: 'sign-in',
+    AppAuthSignUp: 'sign-up',
+    AppAuthForgotPassword: 'forgot-password',
+    AppAuthVerifyEmailAddress: 'verify-email-address',
+
     // Info
     AppInfo: 'info',
     AppInfoRoot: '',
@@ -10,9 +18,9 @@ export const AppURl = {
     AppContactTwo: 'two',
     AppAbout: 'about',
 
-    //SuperHero
+    // SuperHero
     AppSuperHero: 'super-hero',
     AppSuperHeroRoot: '',
     AppSuperHeroList: 'list',
     AppSuperHeroDetail: 'detail/:id'
-}
+};

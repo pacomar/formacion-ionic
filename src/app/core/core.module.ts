@@ -6,12 +6,12 @@ import { CommonModule } from '@angular/common';
 import { CoreRoutingModule } from './core-routing.module';
 import { SuperheroService } from './services/superhero.service';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 import { AngularFireModule } from '@angular/fire';
-import { environment } from '../../environments/environment';
+import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-
-
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -23,17 +23,19 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     CommonModule,
     CoreRoutingModule,
     HttpClientModule,
-    // AngularFireModule.initializeApp(environment.firebase),
-    // AngularFireAuthModule,
-    // AngularFirestoreModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
-    MenuComponent
+    MenuComponent,
+    RouterModule
   ],
   providers: [
-    SuperheroService
+    SuperheroService,
+    AuthService
   ]
 })
 export class CoreModule { }
