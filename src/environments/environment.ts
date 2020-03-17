@@ -6,13 +6,13 @@ export const environment = {
   production: false,
   superhero_api: 'https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/',
   firebase: {
-    apiKey: 'AIzaSyCbTmsML0CjLcxAdtjdBOHGhtu2AiDvkPM',
-    authDomain: 'ciberionicformation.firebaseapp.com',
-    databaseURL: 'https://ciberionicformation.firebaseio.com',
-    projectId: 'ciberionicformation',
-    storageBucket: 'ciberionicformation.appspot.com',
-    messagingSenderId: '309225380372',
-    appId: '1:309225380372:web:975b07f0750580a9596501'
+    apiKey: '--------------------',
+    authDomain: '--------------------',
+    databaseURL: '--------------------',
+    projectId: '--------------------',
+    storageBucket: '--------------------',
+    messagingSenderId: '--------------------',
+    appId: '--------------------'
   }
 };
 
