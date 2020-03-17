@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AppURl } from '../config/app-urls.config';
 import { AuthGuard } from './guard/auth.guard';
 
+
 const routes: Routes = [
   { path: AppURl.AppRoot, redirectTo: AppURl.AppHome, pathMatch: 'full' },
   { path: AppURl.AppAuth, loadChildren: () => import('../views/auth/auth.module').then(m => m.AuthModule) },
@@ -13,6 +14,7 @@ const routes: Routes = [
       .then(m => m.SuperHeroModule), canActivate: [AuthGuard]
   },
 ];
+
 
 @NgModule({
   imports: [

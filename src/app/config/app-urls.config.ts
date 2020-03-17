@@ -22,5 +22,9 @@ export const AppURl = {
     AppSuperHero: 'super-hero',
     AppSuperHeroRoot: '',
     AppSuperHeroList: 'list',
-    AppSuperHeroDetail: 'detail/:id'
+    AppSuperHeroDetail: 'detail/:id',
+
+    //FormShops
+    AppFormShops: 'form-shops',
+    AppFromShopsRoot: '',
 };

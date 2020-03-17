@@ -1,0 +1,12 @@
+<p>
+  formulary-page works!
+</p>
+<from [formGroup]="newDarTeamFrom" (ngSubmit)="onSumbit()">
+  <label> Team Name:
+    <input type="text" fromControlNAme="teamName">
+  </label>
+  <label> Team Description:
+    <input type="text" fromControlNAme="Team Description">
+  </label>
+  <button type="submit" [disabled]=!newDarTeamFrom.valid> Submit </button>
+  </form>

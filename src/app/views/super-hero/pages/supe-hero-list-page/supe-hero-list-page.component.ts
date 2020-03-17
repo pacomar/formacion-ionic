@@ -17,12 +17,15 @@ export class SupeHeroListPageComponent implements OnInit {
 
   ngOnInit() {
     this.superheroService.getSuperheroAll().subscribe(data => {
-      const aux = [];
-      data.map(item => {
-        aux.push(new Hero(item.id, item.name, []));
-      });
-      this.heroes = aux;
-      console.log(this.heroes);
+      // alert("entra"); 
+      console.log(data.confirmed); 
+      // const aux = [];
+      // data.map(item => {
+      //   console.log(item); 
+      //   aux.push(new Hero(item.name, item.id, []));
+      // });
+      // this.heroes = aux;
+      // console.log(this.heroes);
     }, err => {
       console.log('Error SupeHeroListPageComponent-getSuperheroAll: ' + err);
     });

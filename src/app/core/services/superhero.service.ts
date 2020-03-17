@@ -13,7 +13,9 @@ export class SuperheroService {
 
     }
     getSuperheroAll(): Observable<any> {
-        return this.http.get(environment.superhero_api + 'all.json');
+        // return this.http.get(environment.superhero_api + 'all.json');
+        const url_api = "https://coronavirus-tracker-api.herokuapp.com/all";
+        return this.http.get(url_api);
     }
 
     getSuperheroDetail(id: string): Observable<any> {
