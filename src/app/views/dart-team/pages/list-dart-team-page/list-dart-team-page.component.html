@@ -1,0 +1,6 @@
+<p>
+  list-dart-team-page works!
+</p>
+<ul>
+  <li *ngFor="let team of teams" (click)="goToDetail(team.id)">{{team.name}}</li>
+</ul>

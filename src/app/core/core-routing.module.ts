@@ -12,6 +12,10 @@ const routes: Routes = [
     path: AppURl.AppSuperHero, loadChildren: () => import('../views/super-hero/super-hero.module')
       .then(m => m.SuperHeroModule), canActivate: [AuthGuard]
   },
+  {
+    path: AppURl.AppDartTeam, loadChildren: () => import('../views/dart-team/dart-team.module')
+      .then(m => m.DartTeamModule), canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({

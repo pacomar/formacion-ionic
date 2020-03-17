@@ -22,5 +22,12 @@ export const AppURl = {
     AppSuperHero: 'super-hero',
     AppSuperHeroRoot: '',
     AppSuperHeroList: 'list',
-    AppSuperHeroDetail: 'detail/:id'
+    AppSuperHeroDetail: 'detail/:id',
+
+    // DartTeam
+    AppDartTeam: 'dart-team',
+    AppDartTeamRoot: '',
+    AppDartTeamList: 'list',
+    AppDartTeamNew: 'new',
+    AppDartTeamDetail: 'detail/:id'
 };

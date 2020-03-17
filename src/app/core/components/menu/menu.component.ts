@@ -17,7 +17,13 @@ export class MenuComponent implements OnInit {
     this.links.push(
       new Link(
         'Superheroes',
-        AppURl.AppSuperHero + '/' + AppURl.AppSuperHeroList
+        AppURl.AppSuperHero
+      )
+    );
+    this.links.push(
+      new Link(
+        'Equipos de dardos',
+        AppURl.AppDartTeam
       )
     );
     this.links.push(

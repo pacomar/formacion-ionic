@@ -1,0 +1,18 @@
+<p>
+  create-dart-team-page works!
+</p>
+
+<form [formGroup]="newDarTeamForm"  (ngSubmit)="onSubmit()">
+  
+  <label>
+    Team Name:
+    <input type="text" formControlName="teamName">
+  </label>
+
+  <label>
+    Team Description:
+    <input type="text" formControlName="teamDescription">
+  </label>
+
+  <button type="submit" [disabled]="!newDarTeamForm.valid">Submit</button>
+</form>
