@@ -1,12 +1,31 @@
-<p>
-  formulary-page works!
-</p>
-<from [formGroup]="newDarTeamFrom" (ngSubmit)="onSumbit()">
-  <label> Team Name:
-    <input type="text" fromControlNAme="teamName">
+<form [formGroup]="newShopFrom" (ngSubmit)="onSubmit()">
+  <label> Shop Name:
+    <br>
+    <input type="text" formControlName="shopName">
   </label>
-  <label> Team Description:
-    <input type="text" fromControlNAme="Team Description">
+  <br>
+  <label> Opening Hours:
+    <br>
+    <input type="time" formControlName="openHour">
   </label>
-  <button type="submit" [disabled]=!newDarTeamFrom.valid> Submit </button>
-  </form>
+  <br>
+  <label> Closing Hours:
+    <br>
+    <input type="time" formControlName="closeHour">
+  </label>
+  <br>
+  <label> Latitude:
+    <br>
+    <input type="number" formControlName="latitude">
+  </label>
+  <br>
+  <label> Longitude:
+    <br>
+    <input type="number" formControlName="longitude">
+  </label>
+  <br>
+  <button type="submit" [disabled]=!newShopFrom.valid> Submit </button>
+</form>
+
+
+

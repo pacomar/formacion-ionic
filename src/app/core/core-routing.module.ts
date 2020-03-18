@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: AppURl.AppAuth, loadChildren: () => import('../views/auth/auth.module').then(m => m.AuthModule) },
   { path: AppURl.AppHome, loadChildren: () => import('../views/home/home.module').then(m => m.HomePageModule) },
   { path: AppURl.AppInfo, loadChildren: () => import('../views/info/info.module').then(m => m.InfoModule) },
+  { path: AppURl.AppFormBackgroundShops, loadChildren: () => import('../views/formshops/forms-shops.module').then(m => m.FormsShopsModule) },
   {
     path: AppURl.AppSuperHero, loadChildren: () => import('../views/super-hero/super-hero.module')
       .then(m => m.SuperHeroModule), canActivate: [AuthGuard]

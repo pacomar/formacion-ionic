@@ -24,7 +24,12 @@ export const AppURl = {
     AppSuperHeroList: 'list',
     AppSuperHeroDetail: 'detail/:id',
 
-    //FormShops
+    //Background Shops
+    AppFormBackgroundShops: 'back-shops',
+    AppFormBackgroundShopsRoot: '',
     AppFormShops: 'form-shops',
-    AppFromShopsRoot: '',
+    AppShopList: 'shops-list',
+
 };
+
+
