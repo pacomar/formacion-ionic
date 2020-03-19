@@ -2,8 +2,7 @@
   shops-list-page works!
 </p>
 <ul>
-  <li *ngFor="let shop of shops" >{{shop.name}}</li>
+  <li *ngFor="let shop of shops" (click)="goToDetail(shop.id)" >{{shop.name}}</li>
 </ul> 
 
 
-<!-- (click)="goToDetail(team.id)"-->

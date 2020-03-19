@@ -29,6 +29,8 @@ export const AppURl = {
     AppFormBackgroundShopsRoot: '',
     AppFormShops: 'form-shops',
     AppShopList: 'shops-list',
+    AppShopDetail: 'detail/:id'
+
 
 };
 

@@ -4,6 +4,7 @@ import { AppURl } from 'src/app/config/app-urls.config';
 import { FormsShopsPageComponent } from './pages/forms-shops-page/forms-shops-page.component';
 import { BackgroundPageComponent } from './pages/background-page/background-page.component';
 import { ShopsListPageComponent } from './pages/shops-list-page/shops-list-page.component';
+import { ShopDetailPageComponent } from './pages/shop-detail-page/shop-detail-page.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
       { path: AppURl.AppFormShops, component: FormsShopsPageComponent },
       { path: AppURl.AppShopList, component: ShopsListPageComponent },
     ]
-  }
+  },
+  { path: AppURl.AppShopDetail, component: ShopDetailPageComponent }
 ]
 
 

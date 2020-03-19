@@ -5,11 +5,12 @@ import { FormsShopsPageComponent } from './pages/forms-shops-page/forms-shops-pa
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShopsListPageComponent } from './pages/shops-list-page/shops-list-page.component';
 import { BackgroundPageComponent } from './pages/background-page/background-page.component';
+import { ShopDetailPageComponent } from './pages/shop-detail-page/shop-detail-page.component';
 
-//Ver si es necesario o no los exports o sólo los declarations
+
 
 @NgModule({
-  declarations: [BackgroundPageComponent,FormsShopsPageComponent, ShopsListPageComponent],
+  declarations: [BackgroundPageComponent,FormsShopsPageComponent, ShopsListPageComponent,ShopDetailPageComponent],
   imports: [
     CommonModule,
     FormsShopsRoutingModule,

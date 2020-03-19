@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Shops } from 'src/app/core/models/shops';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { AppURl } from 'src/app/config/app-urls.config';
 
 @Component({
   selector: 'app-shops-list-page',
@@ -17,11 +18,11 @@ export class ShopsListPageComponent implements OnInit {
 
 
   ngOnInit() {
-    
+
     this.firestore.collection('quarenteneStore').snapshotChanges().subscribe(data => {
       this.shops = data.map(elem =>
-        new Shops(elem.payload.doc.data()['closeHour'], elem.payload.doc.data()['latitude'], elem.payload.doc.data()['longitude'], elem.payload.doc.data()['name'], elem.payload.doc.data()['openHour']));
-        console.log(this.shops); 
+        new Shops(elem.payload.doc.data()['closeHour'], elem.payload.doc.data()['latitude'], elem.payload.doc.data()['longitude'], elem.payload.doc.data()['name'],elem.payload.doc.data()['openHour'], elem.payload.doc.id));
+      console.log(this.shops);
     }, err => {
       console.log(err);
     });
@@ -30,13 +31,12 @@ export class ShopsListPageComponent implements OnInit {
 
 
 
-  // goToDetail(id: string) {
-  //   // TODO: fix this url
-  //   this.router.navigate([AppURl.AppDartTeam, 'detail', id]);
-  // }
+  goToDetail(id: string) {
+    // TODO: fix this url
+    this.router.navigate([AppURl.AppFormBackgroundShops, 'detail', id]);
+  }
 
 }
 
 
 
- 
