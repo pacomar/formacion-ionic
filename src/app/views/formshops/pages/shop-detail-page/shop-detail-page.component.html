@@ -2,6 +2,48 @@
   shop-detail-page works!
 </p>
 <div *ngIf="item">
-  <h1>Nombre : {{ item.name }}</h1>
-  <h1>Longitud: {{ item.longitude }}</h1>
+  <h1>Name : {{ item.name }}</h1>
+  <p>Longitude: {{ item.longitude }}</p>
+  <p>Latitude: {{ item.latitude }}</p>
+  <p>Opening Hours: {{ item.openHour }}</p>
+  <p>Closing Hours: {{ item.closeHour }}</p>
+  <p>Comentarie : {{ item.comentarie }}</p>
+  <button type="button" (click)="delete(item.id)">Borrar</button>
+  <button pButton type="button" id="modifyButton"
+    (click)="Modify(item.id,item.name,item.longitude, item.latitude, item.openHour, item.closeHour, item.comentarie)"
+    class="ui-button-danger">Modify</button>
+  <form [formGroup]="newShopFrom" (ngSubmit)="onSubmit()">
+    <label> Shop Name:
+      <br>
+      <input type="text" formControlName="shopName">
+    </label>
+    <br>
+    <label> Opening Hours:
+      <br>
+      <input type="time" formControlName="openHour">
+    </label>
+    <br>
+    <label> Closing Hours:
+      <br>
+      <input type="time" formControlName="closeHour">
+    </label>
+    <br>
+    <label> Latitude:
+      <br>
+      <input type="number" formControlName="latitude">
+    </label>
+    <br>
+    <label> Longitude:
+      <br>
+      <input type="number" formControlName="longitude">
+    </label>
+    <br>
+    <br>
+    <label> Comentaries:
+      <br>
+      <textarea formControlName="comentarie"></textarea>
+    </label>
+    <br>
+    <button type="submit" [disabled]=!newShopFrom.valid> Submit </button>
+  </form>
 </div>

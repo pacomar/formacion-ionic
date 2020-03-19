@@ -17,6 +17,7 @@ export class FormsShopsPageComponent implements OnInit {
     closeHour: new FormControl(''),
     latitude: new FormControl(''),
     longitude: new FormControl(''),
+    comentarie : new FormControl('')
   })
 
   constructor(private afs: AngularFirestore) { }
@@ -24,7 +25,6 @@ export class FormsShopsPageComponent implements OnInit {
   ngOnInit() { }
 
   onSubmit() {
-    alert("ese");
     console.log(this.newShopFrom);
     this.afs.collection('quarenteneStore').add(
       {
@@ -33,6 +33,7 @@ export class FormsShopsPageComponent implements OnInit {
         closeHour: this.newShopFrom.value.closeHour,
         latitude: this.newShopFrom.value.latitude,
         longitude: this.newShopFrom.value.longitude,
+        comentarie: this.newShopFrom.value.comentarie
       }
     ).then(res => { alert("created!"); }, err => console.log(err));
   }
