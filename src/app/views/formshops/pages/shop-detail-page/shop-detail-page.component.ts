@@ -151,6 +151,19 @@ export class ShopDetailPageComponent implements OnInit {
 
   }
 
+   delComm(id : string) {
+    let washingtonRef = this.firestore.collection("quarenteneStore").doc(id);
+    return washingtonRef.update({
+      comentarie: ""
+    })
+      .then(function () {
+        console.log("Document successfully updated!");
+      })
+      .catch(function (error) {
+        console.error("Error updating document: ", error);
+      });
+  }
+
 
 
 }

@@ -8,7 +8,9 @@
   <p>Opening Hours: {{ item.openHour }}</p>
   <p>Closing Hours: {{ item.closeHour }}</p>
   <p>Comentarie : {{ item.comentarie }}</p>
-  <button type="button" (click)="delete(item.id)">Borrar</button>
+  <button type="button" (click)="delComm(item.id)">Delete Commentarie</button>
+  <br>
+  <button type="button" (click)="delete(item.id)">Delete item</button>
   <button pButton type="button" id="modifyButton"
     (click)="Modify(item.id,item.name,item.longitude, item.latitude, item.openHour, item.closeHour, item.comentarie)"
     class="ui-button-danger">Modify</button>
