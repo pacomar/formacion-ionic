@@ -5,6 +5,7 @@ import { FormsShopsPageComponent } from './pages/forms-shops-page/forms-shops-pa
 import { BackgroundPageComponent } from './pages/background-page/background-page.component';
 import { ShopsListPageComponent } from './pages/shops-list-page/shops-list-page.component';
 import { ShopDetailPageComponent } from './pages/shop-detail-page/shop-detail-page.component';
+import { EsriMapComponent } from './pages/esri-map/esri-map.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
     path: AppURl.AppFormBackgroundShops, component: BackgroundPageComponent, children: [
       { path: AppURl.AppFormShops, component: FormsShopsPageComponent },
       { path: AppURl.AppShopList, component: ShopsListPageComponent },
+      { path: AppURl.AppShopMap, component: EsriMapComponent },
     ]
   },
   { path: AppURl.AppShopDetail, component: ShopDetailPageComponent }

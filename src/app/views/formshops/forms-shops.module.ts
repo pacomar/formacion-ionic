@@ -6,11 +6,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShopsListPageComponent } from './pages/shops-list-page/shops-list-page.component';
 import { BackgroundPageComponent } from './pages/background-page/background-page.component';
 import { ShopDetailPageComponent } from './pages/shop-detail-page/shop-detail-page.component';
+import { EsriMapComponent } from './pages/esri-map/esri-map.component';
 
 
 
 @NgModule({
-  declarations: [BackgroundPageComponent,FormsShopsPageComponent, ShopsListPageComponent,ShopDetailPageComponent],
+  declarations: [BackgroundPageComponent,FormsShopsPageComponent, ShopsListPageComponent,ShopDetailPageComponent,EsriMapComponent],
   imports: [
     CommonModule,
     FormsShopsRoutingModule,

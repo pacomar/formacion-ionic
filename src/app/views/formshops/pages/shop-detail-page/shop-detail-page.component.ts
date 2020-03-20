@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Shops } from 'src/app/core/models/shops';
 import { FormGroup, FormControl } from '@angular/forms';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-shop-detail-page',
@@ -58,8 +59,9 @@ export class ShopDetailPageComponent implements OnInit {
     console.log(this.identificator);
     this.itemDoc.valueChanges().subscribe(data => {
       this.item = data;
-      this.item["id"] = this.identificator;
-      console.log(this.item);
+      if (this.item != undefined) {
+        this.item["id"] = this.identificator;
+      }
     });
   }
 
@@ -99,7 +101,20 @@ export class ShopDetailPageComponent implements OnInit {
   }
 
   delete(id) {
-    this.firestore.collection("quarenteneStore").doc(id).delete().then(function () { console.log("exito al borrar") }).catch(function (error) { console.log("error man", error) });
+    let user = firebase.auth().currentUser;
+    let name, email, photoUrl, uid, emailVerified;
+    if (user != null) {
+      name = user.displayName;
+      email = user.email;
+      photoUrl = user.photoURL;
+      emailVerified = user.emailVerified;
+      uid = user.uid;
+    }
+    if (email === "asuarezc91@gmail.com") {
+      this.firestore.collection("quarenteneStore").doc(id).delete().then(function () { console.log("exito al borrar") }).catch(function (error) { console.log("error man", error) });
+    } else {
+      alert("no puedes borrarlo");
+    }
   }
 
   onSubmit() {
@@ -151,7 +166,7 @@ export class ShopDetailPageComponent implements OnInit {
 
   }
 
-   delComm(id : string) {
+  delComm(id: string) {
     let washingtonRef = this.firestore.collection("quarenteneStore").doc(id);
     return washingtonRef.update({
       comentarie: ""

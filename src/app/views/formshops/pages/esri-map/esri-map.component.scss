@@ -1,0 +1,35 @@
+/* import the required JSAPI css */
+@import url("https://js.arcgis.com/4.12/esri/css/main.css");
+
+.esri-view {
+  height: 100%;
+  width: 100%;
+}
+
+.menu {
+  position: absolute;
+  top: 10px;
+  right: 3px;
+  z-index: 99999999;
+}
+
+.containerSelect {
+  height: 80px;
+  width: 100%;
+  background-color: #d98452;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  margin-right: 30px;
+}
+
+p {
+  color: white;
+  margin: 10px; 
+}
+
+select {
+  color: grey;
+}
