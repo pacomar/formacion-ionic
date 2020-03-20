@@ -20,30 +20,12 @@ export class ShopDetailPageComponent implements OnInit {
   item: Shops;
   identificator: string;
   newShopFrom = new FormGroup({
-    shopName: new FormControl({
-      value: '',
-      disabled: false
-    }),
-    openHour: new FormControl({
-      value: '',
-      disabled: false
-    }),
-    closeHour: new FormControl({
-      value: '',
-      disabled: false
-    }),
-    latitude: new FormControl({
-      value: '',
-      disabled: false
-    }),
-    longitude: new FormControl({
-      value: '',
-      disabled: false
-    }),
-    comentarie: new FormControl({
-      value: '',
-      disabled: false
-    })
+    shopName: new FormControl(''),
+    openHour: new FormControl(''),
+    closeHour: new FormControl(''),
+    latitude: new FormControl(''),
+    longitude: new FormControl(''),
+    comentarie: new FormControl('')
   })
 
 
@@ -72,30 +54,12 @@ export class ShopDetailPageComponent implements OnInit {
   Modify(id, name, longitude, latitude, openHour, closeHour, comentarie) {
 
     this.newShopFrom = new FormGroup({
-      shopName: new FormControl({
-        value: name,
-        disabled: false
-      }),
-      openHour: new FormControl({
-        value: openHour,
-        disabled: false
-      }),
-      closeHour: new FormControl({
-        value: closeHour,
-        disabled: false
-      }),
-      latitude: new FormControl({
-        value: latitude,
-        disabled: false
-      }),
-      longitude: new FormControl({
-        value: longitude,
-        disabled: false
-      }),
-      comentarie: new FormControl({
-        value: comentarie,
-        disabled: false
-      }),
+      shopName: new FormControl(name),
+      openHour: new FormControl(openHour),
+      closeHour: new FormControl(closeHour),
+      latitude: new FormControl(latitude),
+      longitude: new FormControl(longitude),
+      comentarie: new FormControl(comentarie),
       id: new FormControl(id),
     })
   }
@@ -118,7 +82,8 @@ export class ShopDetailPageComponent implements OnInit {
   }
 
   onSubmit() {
-    const FromValues = this.newShopFrom.value;
+    let man = this.newShopFrom;
+    const FromValues = man.value;
     const id = FromValues.id;
     let washingtonRef = this.firestore.collection("quarenteneStore").doc(id);
     return washingtonRef.update({
@@ -130,32 +95,15 @@ export class ShopDetailPageComponent implements OnInit {
       comentarie: FromValues.comentarie
     })
       .then(function () {
+        console.log(man);
         console.log("Document successfully updated!");
-        this.newShopFrom = new FormGroup({
-          shopName: new FormControl({
-            value: '',
-            disabled: true
-          }),
-          openHour: new FormControl({
-            value: '',
-            disabled: true
-          }),
-          closeHour: new FormControl({
-            value: '',
-            disabled: true
-          }),
-          latitude: new FormControl({
-            value: '',
-            disabled: true
-          }),
-          longitude: new FormControl({
-            value: '',
-            disabled: true
-          }),
-          comentarie: new FormControl({
-            value: '',
-            disabled: true
-          })
+        man = new FormGroup({
+          shopName: new FormControl(''),
+          openHour: new FormControl(''),
+          closeHour: new FormControl(''),
+          latitude: new FormControl(''),
+          longitude: new FormControl(''),
+          comentarie: new FormControl('')
         })
       })
       .catch(function (error) {
