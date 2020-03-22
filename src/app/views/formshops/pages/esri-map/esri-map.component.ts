@@ -15,11 +15,8 @@ import { SelectItem } from 'primeng/api';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { Shops } from 'src/app/core/models/shops';
+import { SuperheroService } from 'src/app/core/services/superhero.service';
 
-interface City {
-  name: string;
-  code: string;
-}
 
 @Component({
   selector: "app-esri-map",
@@ -28,29 +25,8 @@ interface City {
 })
 export class EsriMapComponent implements OnInit, OnDestroy {
 
-
-
-
-  cities1: SelectItem[];
-
-  cities2: City[];
-
-  selectedCity1: City;
-
-  selectedCity2: City;
-
-
-
-
-
-
-
-
-
-
   @Output() mapLoadedEvent = new EventEmitter<boolean>();
 
-  // The <div> where we will place the map
   @ViewChild("mapViewNode", { static: true }) private mapViewEl: ElementRef;
 
   private _zoom = 16;
@@ -93,27 +69,13 @@ export class EsriMapComponent implements OnInit, OnDestroy {
     return this._basemap;
   }
 
-
-
-
-
-
   shops: Shops[];
+
   constructor(
     private firestore: AngularFirestore,
-    private router: Router
+    private router: Router,
+    private superheroService: SuperheroService,
   ) { }
-
-
-
-
-
-
-
-
-
-
-
 
 
   async initializeMap() {
@@ -129,96 +91,88 @@ export class EsriMapComponent implements OnInit, OnDestroy {
         "esri/renderers/Renderer"
 
       ]);
-      const url: string = "https://services6.arcgis.com/30currU8oaQeVHvW/arcgis/rest/services/L%C3%ADneas_de_guagua/FeatureServer/0";
-      // this._featureL = new FeatureLayer(url);
 
-
-
-      //test object
-
-
-
-
-
-      // this._featureL = new FeatureLayer({
-      //   fields: [{
-      //     name: "ObjectID",
-      //     alias: "ObjectID",
-      //     type: "oid"
-      //   }, {
-      //     name: "name",
-      //     alias: "Name",
-      //     type: "string"
-      //   },
-      //   {
-      //     name: "latitude",
-      //     alias: "Latitude",
-      //     type: "number"
-      //   }
-      //   ],
-      //   objectIdField: "ObjectID",
-      //   geometryType: "point",
-      //   spatialReference: { wkid: 4326 },
-      //   source: [{
-      //     geometry: new Point({
-      //       x: -98,
-      //       y: 38
-      //     }),
-      //     attributes: {
-      //       ObjectID: 1,
-      //       name: "KATL",
-      //       latitude: "UAL1"
-      //     }
-      //   },
-      //     {
-      //       geometry: new Point({
-      //         x: -4,
-      //         y: 40
-      //       }),
-      //       attributes: {
-      //         ObjectID: 2,
-      //         name: "KZBW",
-      //         latitude: "SW999"
-      //       }
-      //     },
-      //     {
-      //       geometry: new Point({
-      //         x: -16,
-      //         y: 28
-      //       }),
-      //       attributes: {
-      //         ObjectID: 3,
-      //         name: "ese",
-      //         latitude: "wee"
-      //       }
-      //     }
-      //   ],
-      //   renderer: {
-      //     type: 'simple',
-      //     label: "",
-      //     description: "",
-      //     symbol: {
-      //       type: "simple-marker", 
-      //       style: "square",
-      //       color: "blue",
-      //       size: "18px",  
-      //       outline: {  
-      //         color: [255, 255, 0],
-      //         width: 3  
-      //       }
-      //     }
-      //   }
-      // });
-
-
-
-      console.log(this._featureL);
 
       const mapProperties: esri.MapProperties = {
         basemap: this._basemap,
       };
 
       const map: esri.Map = new EsriMap(mapProperties);
+
+//Conoravirus Data 
+
+      // this.superheroService.getSuperheroAll().subscribe(data => {
+      //   let confirmed = data.confirmed;
+      //   let locations = confirmed.locations;
+      //   let cont = 0;
+      //   let dataCOD = [];
+      //   for (let i = 0; i < locations.length; i++) {
+      //     cont++;
+      //     const element = locations[i];
+      //     let nameCountry = element.country;
+      //     let latestCountry = element.latest;
+      //     let coordinates = element.coordinates;
+      //     let lat = coordinates.lat;
+      //     let long = coordinates.long;
+      //     let latNumber = Number(lat);
+      //     let longNumber = Number(long);
+
+      //     let points = {
+      //       geometry: new Point({
+      //         x: longNumber,
+      //         y: latNumber
+      //       }),
+      //       attributes: {
+      //         ObjectID: cont,
+      //         name: nameCountry,
+      //         latest: latestCountry
+      //       }
+      //     };
+      //     dataCOD.push(points);
+      //   }
+
+      //   console.log(dataCOD);
+
+      //   this._featureL = new FeatureLayer({
+      //     fields: [{
+      //       name: "ObjectID",
+      //       alias: "ObjectID",
+      //       type: "oid"
+      //     }, {
+      //       name: "name",
+      //       alias: "Name",
+      //       type: "string"
+      //     },
+      //     {
+      //       name: "latest",
+      //       alias: "Latest",
+      //       type: "double"
+      //     }
+      //     ],
+      //     objectIdField: "ObjectID",
+      //     geometryType: "point",
+      //     spatialReference: { wkid: 4326 },
+      //     source: dataCOD,
+      //     renderer: {
+      //       type: 'simple',
+      //       label: "",
+      //       description: "",
+      //       symbol: {
+      //         type: "simple-marker",
+      //         style: "square",
+      //         color: "blue",
+      //         size: "18px",
+      //         outline: {
+      //           color: [255, 255, 0],
+      //           width: 3
+      //         }
+      //       }
+      //     }
+      //   });
+      //   map.layers.add(this._featureL);
+      // }, err => {
+      //   console.log('Error SupeHeroListPageComponent-getSuperheroAll: ' + err);
+      // });
 
 
 
@@ -232,10 +186,8 @@ export class EsriMapComponent implements OnInit, OnDestroy {
           const element = this._shops[i];
           const latitude = element.latitude;
           const longitude = element.longitude;
-          const name = element.name; 
-          console.log(latitude);
-       
-          let test = {
+          const name = element.name;
+          let points = {
             geometry: new Point({
               x: longitude,
               y: latitude
@@ -246,61 +198,50 @@ export class EsriMapComponent implements OnInit, OnDestroy {
               latitude: latitude
             }
           };
-          dataArray.push(test);
+          dataArray.push(points);
         }
 
-        
-      this._featureL = new FeatureLayer({
-        fields: [{
-          name: "ObjectID",
-          alias: "ObjectID",
-          type: "oid"
-        }, {
-          name: "name",
-          alias: "Name",
-          type: "string"
-        },
-        {
-          name: "latitude",
-          alias: "Latitude",
-          type: "double"
-        }
-        ],
-        objectIdField: "ObjectID",
-        geometryType: "point",
-        spatialReference: { wkid: 4326 },
-        source: dataArray,
-        renderer: {
-          type: 'simple',
-          label: "",
-          description: "",
-          symbol: {
-            type: "simple-marker", 
-            style: "square",
-            color: "blue",
-            size: "18px",  
-            outline: {  
-              color: [255, 255, 0],
-              width: 3  
+        this._featureL = new FeatureLayer({
+          fields: [{
+            name: "ObjectID",
+            alias: "ObjectID",
+            type: "oid"
+          }, {
+            name: "name",
+            alias: "Name",
+            type: "string"
+          },
+          {
+            name: "latitude",
+            alias: "Latitude",
+            type: "double"
+          }
+          ],
+          objectIdField: "ObjectID",
+          geometryType: "point",
+          spatialReference: { wkid: 4326 },
+          source: dataArray,
+          renderer: {
+            type: 'simple',
+            label: "",
+            description: "",
+            symbol: {
+              type: "simple-marker",
+              style: "square",
+              color: "blue",
+              size: "18px",
+              outline: {
+                color: [255, 255, 0],
+                width: 3
+              }
             }
           }
-        }
-      });
-
-
-
-
-        console.log(dataArray);
-
-
+        });
 
         map.layers.add(this._featureL);
       }, err => {
         console.log(err);
       });
-
-
-
 
       const mapViewProperties: esri.MapViewProperties = {
         container: this.mapViewEl.nativeElement,
@@ -312,28 +253,15 @@ export class EsriMapComponent implements OnInit, OnDestroy {
       await this._view.when();
       return this._view;
 
-
-
-
-
-
     } catch (error) {
       console.log("EsriLoader: ", error);
     }
   }
 
-  filterMap(event: any) {
-    const selectedLine = event.value.id;
-    console.log(selectedLine);
-    this._featureL.definitionExpression = "Linea = '" + selectedLine + "'";
-    // this._featureL.definitionExpression = "1=1";
-  }
+
 
 
   ngOnInit() {
-
-
-
     this.initializeMap().then(mapView => {
       console.log("mapView ready: ", this._view.ready);
       this._loaded = this._view.ready;

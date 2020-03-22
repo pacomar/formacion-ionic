@@ -11,7 +11,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class FormsShopsPageComponent implements OnInit {
 
   newShopFrom = new FormGroup({
-    // teamName: new FormControl('', Validators.required),
     shopName: new FormControl(''),
     openHour: new FormControl(''),
     closeHour: new FormControl(''),
@@ -25,7 +24,6 @@ export class FormsShopsPageComponent implements OnInit {
   ngOnInit() { }
 
   onSubmit() {
-    console.log(this.newShopFrom);
     this.afs.collection('quarenteneStore').add(
       {
         name: this.newShopFrom.value.shopName,

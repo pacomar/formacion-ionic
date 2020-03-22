@@ -52,7 +52,6 @@ export class ShopDetailPageComponent implements OnInit {
   }
 
   Modify(id, name, longitude, latitude, openHour, closeHour, comentarie) {
-
     this.newShopFrom = new FormGroup({
       shopName: new FormControl(name),
       openHour: new FormControl(openHour),
@@ -75,15 +74,15 @@ export class ShopDetailPageComponent implements OnInit {
       uid = user.uid;
     }
     if (email === "asuarezc91@gmail.com") {
-      this.firestore.collection("quarenteneStore").doc(id).delete().then(function () { console.log("exito al borrar") }).catch(function (error) { console.log("error man", error) });
+      this.firestore.collection("quarenteneStore").doc(id).delete().then(function () { console.log("good") }).catch(function (error) { console.log("error", error) });
     } else {
-      alert("no puedes borrarlo");
+      alert("You can't delete this item");
     }
   }
 
   onSubmit() {
-    let man = this.newShopFrom;
-    const FromValues = man.value;
+    let FromShops = this.newShopFrom;
+    const FromValues = FromShops.value;
     const id = FromValues.id;
     let washingtonRef = this.firestore.collection("quarenteneStore").doc(id);
     return washingtonRef.update({
@@ -95,9 +94,8 @@ export class ShopDetailPageComponent implements OnInit {
       comentarie: FromValues.comentarie
     })
       .then(function () {
-        console.log(man);
         console.log("Document successfully updated!");
-        man = new FormGroup({
+        FromShops = new FormGroup({
           shopName: new FormControl(''),
           openHour: new FormControl(''),
           closeHour: new FormControl(''),
@@ -109,9 +107,6 @@ export class ShopDetailPageComponent implements OnInit {
       .catch(function (error) {
         console.error("Error updating document: ", error);
       });
-
-
-
   }
 
   delComm(id: string) {
@@ -126,7 +121,4 @@ export class ShopDetailPageComponent implements OnInit {
         console.error("Error updating document: ", error);
       });
   }
-
-
-
 }

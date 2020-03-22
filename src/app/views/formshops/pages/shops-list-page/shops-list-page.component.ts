@@ -22,7 +22,6 @@ export class ShopsListPageComponent implements OnInit {
     this.firestore.collection('quarenteneStore').snapshotChanges().subscribe(data => {
       this.shops = data.map(elem =>
         new Shops(elem.payload.doc.data()['closeHour'], elem.payload.doc.data()['latitude'], elem.payload.doc.data()['longitude'], elem.payload.doc.data()['name'],elem.payload.doc.data()['openHour'], elem.payload.doc.id,elem.payload.doc.data()['comentarie']));
-      console.log(this.shops);
     }, err => {
       console.log(err);
     });
