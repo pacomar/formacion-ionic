@@ -1,5 +1,7 @@
+ <div id="contentList"> 
  <ul>
-  <li *ngFor="let shop of shops" (click)="goToDetail(shop.id)" >{{shop.name}}</li>
-</ul> 
+  <div class="boxShop" *ngFor="let shop of shops" (click)="goToDetail(shop.id)" >{{shop.name}}</div>
+</ul>
+</div>
 
 

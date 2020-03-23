@@ -34,7 +34,7 @@ export class ShopsListPageComponent implements OnInit {
     // TODO: fix this url
     this.router.navigate([AppURl.AppFormBackgroundShops, 'detail', id]);
   }
-
+  // AppFormBackgroundShops
 }
 
 

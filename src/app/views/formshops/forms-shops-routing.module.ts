@@ -17,7 +17,12 @@ const routes: Routes = [
       { path: AppURl.AppShopMap, component: EsriMapComponent },
     ]
   },
-  { path: AppURl.AppShopDetail, component: ShopDetailPageComponent }
+  { path: AppURl.AppShopDetail, component: ShopDetailPageComponent },
+  // {
+  //   path: AppURl.AppShopDetail, component: ShopDetailPageComponent, children: [
+  //     { path: AppURl.AppShopList, component: ShopsListPageComponent },
+  //   ]
+  // },
 ]
 
 

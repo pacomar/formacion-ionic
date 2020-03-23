@@ -7,6 +7,10 @@ import { ShopsListPageComponent } from './pages/shops-list-page/shops-list-page.
 import { BackgroundPageComponent } from './pages/background-page/background-page.component';
 import { ShopDetailPageComponent } from './pages/shop-detail-page/shop-detail-page.component';
 import { EsriMapComponent } from './pages/esri-map/esri-map.component';
+import {InputTextModule} from 'primeng/inputtext';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import { MatSliderModule } from '@angular/material/slider';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -16,7 +20,11 @@ import { EsriMapComponent } from './pages/esri-map/esri-map.component';
     CommonModule,
     FormsShopsRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    InputTextModule,
+    InputTextareaModule,
+    MatSliderModule,
+    MatIconModule
   ]
 })
 

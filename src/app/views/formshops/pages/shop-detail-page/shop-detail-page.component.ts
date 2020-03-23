@@ -6,6 +6,10 @@ import { Observable } from 'rxjs';
 import { Shops } from 'src/app/core/models/shops';
 import { FormGroup, FormControl } from '@angular/forms';
 import * as firebase from 'firebase';
+import { AppURl } from 'src/app/config/app-urls.config';
+import { Router } from '@angular/router';
+import swal from 'sweetalert';
+
 
 @Component({
   selector: 'app-shop-detail-page',
@@ -32,6 +36,7 @@ export class ShopDetailPageComponent implements OnInit {
   constructor(
     private firestore: AngularFirestore,
     private route: ActivatedRoute,
+    private router: Router
   ) { }
 
 
@@ -61,6 +66,14 @@ export class ShopDetailPageComponent implements OnInit {
       comentarie: new FormControl(comentarie),
       id: new FormControl(id),
     })
+  }
+
+  goToList() {
+
+
+
+    this.router.navigate([AppURl.AppFormBackgroundShops, 'back-shops', 'shops-list']);
+
   }
 
   delete(id) {
@@ -95,6 +108,7 @@ export class ShopDetailPageComponent implements OnInit {
     })
       .then(function () {
         console.log("Document successfully updated!");
+
         FromShops = new FormGroup({
           shopName: new FormControl(''),
           openHour: new FormControl(''),
@@ -103,6 +117,7 @@ export class ShopDetailPageComponent implements OnInit {
           longitude: new FormControl(''),
           comentarie: new FormControl('')
         })
+        swal("Good job!", "The store was updated!", "success");
       })
       .catch(function (error) {
         console.error("Error updating document: ", error);

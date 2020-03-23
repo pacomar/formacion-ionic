@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
+import swal from 'sweetalert';
 
 
 @Component({
@@ -33,7 +34,7 @@ export class FormsShopsPageComponent implements OnInit {
         longitude: this.newShopFrom.value.longitude,
         comentarie: this.newShopFrom.value.comentarie
       }
-    ).then(res => { alert("created!"); }, err => console.log(err));
+    ).then(res => { swal("Good job!", "The store was added!", "success"); }, err => console.log(err));
   }
 }
 

@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit {
       )
     );
     this.links.push(
-      new Link('Shops', AppURl.AppFormBackgroundShops)
+      new Link('Stores', AppURl.AppFormBackgroundShops)
     );
     this.links.push(
       new Link('Contacto', AppURl.AppInfo + '/' + AppURl.AppContact)

@@ -38,3 +38,12 @@
 /* Styles for bootstrap */
 
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+@import url('https://fonts.googleapis.com/css?family=Alegreya&display=swap');
+
+@import url('https://fonts.googleapis.com/css?family=Alegreya|Roboto+Mono&display=swap');
+
+
+.swal-button swal-button--confirm {
+    background-color: #424858 !important;
+  }

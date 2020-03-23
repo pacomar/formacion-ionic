@@ -1,6 +1,6 @@
 :host {
     height: 70px;
-    background-color: orange;
+    background-color: #353335;
     color: white;
     padding: 10px;
     text-align: center;
@@ -8,4 +8,13 @@
     line-height: 52x;
     width: 100%;
     display: block;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    align-content: center; 
+}
+
+.tittle {
+    font-family: 'Alegreya', serif;
+    font-size: 40px;
 }
