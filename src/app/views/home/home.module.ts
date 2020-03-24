@@ -8,6 +8,8 @@ import { RouterModule } from '@angular/router';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSliderModule } from '@angular/material/slider';
 import { HomePage } from './pages/home/home.page';
+import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   imports: [
@@ -21,7 +23,9 @@ import { HomePage } from './pages/home/home.page';
       }
     ]),
     NgbCarouselModule,
-    MatSliderModule
+    MatSliderModule,
+    MatCardModule,
+    MatInputModule
   ],
   declarations: [HomePage, UnoComponent, DosComponent]
 })

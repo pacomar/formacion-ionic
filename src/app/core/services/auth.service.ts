@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable, NgZone, EventEmitter } from '@angular/core';
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
@@ -12,6 +12,9 @@ import { AppURl } from 'src/app/config/app-urls.config';
 
 export class AuthService {
     userData: any; // Save logged in user data
+
+    //Observable 
+    userInformation$ = new EventEmitter<object>();
 
     constructor(
         public afs: AngularFirestore,   // Inject Firestore service
@@ -85,11 +88,14 @@ export class AuthService {
 
     // Sign in with Google
     GoogleAuth() {
+
         return this.AuthLogin(new auth.GoogleAuthProvider());
+
     }
 
     // Auth logic to run auth providers
     AuthLogin(provider) {
+
         return this.afAuth.auth.signInWithPopup(provider)
             .then((result) => {
                 this.ngZone.run(() => {
@@ -99,11 +105,9 @@ export class AuthService {
             }).catch((error) => {
                 window.alert(error);
             });
+
     }
 
-    /* Setting up user data when sign in with username/password,
-    sign up with username/password and sign in with social auth
-    provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
     SetUserData(user) {
         const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
         const userData: User = {
@@ -113,6 +117,7 @@ export class AuthService {
             photoURL: user.photoURL,
             emailVerified: user.emailVerified
         };
+        this.router.navigate([AppURl.AppHome]);
         return userRef.set(userData, {
             merge: true
         });
@@ -122,6 +127,14 @@ export class AuthService {
     SignOut() {
         return this.afAuth.auth.signOut().then(() => {
             localStorage.removeItem('user');
+            let changeForm = {
+                uid: "",
+                email: "",
+                displayName: "",
+                photoURL: "",
+                emailVerified: false
+            };
+            this.userInformation$.emit(changeForm);
             this.router.navigate([AppURl.AppAuth, AppURl.AppAuthSignIn]);
         });
     }

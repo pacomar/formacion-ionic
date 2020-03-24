@@ -15,17 +15,17 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.links.push(new Link('Home', AppURl.AppHome));
     this.links.push(
-      new Link(
-        'Superheroes',
-        AppURl.AppSuperHero + '/' + AppURl.AppSuperHeroList
-      )
+      // new Link(
+      //   'SuperHeroes',
+      //   AppURl.AppSuperHero + '/' + AppURl.AppSuperHeroList
+      // )
     );
     this.links.push(
       new Link('Stores', AppURl.AppFormBackgroundShops)
     );
-    this.links.push(
-      new Link('Contacto', AppURl.AppInfo + '/' + AppURl.AppContact)
-    );
-    this.links.push(new Link('About', AppURl.AppInfo + '/' + AppURl.AppAbout));
+    // this.links.push(
+    //   new Link('Contacto', AppURl.AppInfo + '/' + AppURl.AppContact)
+    // );
+    // this.links.push(new Link('About', AppURl.AppInfo + '/' + AppURl.AppAbout));
   }
 }

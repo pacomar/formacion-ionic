@@ -1,5 +1,5 @@
-<p>Home</p>
-<ngb-carousel *ngIf="images">
+<!-- <p>Home</p> -->
+<!-- <ngb-carousel *ngIf="images">
     <ng-template ngbSlide>
         <div class="picsum-img-wrapper">
             <img [src]="images[0]" alt="Random first slide" />
@@ -27,24 +27,17 @@
             <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
         </div>
     </ng-template>
-</ngb-carousel>
-<mat-slider min="1" max="100" step="1" value="1"></mat-slider>
+</ngb-carousel> -->
+
+
+<!-- <mat-slider min="1" max="100" step="1" value="1"></mat-slider>
 <app-uno [p1]="p1 + p2" [p2]="p2"></app-uno>
-<app-dos #comp2 (exit)="showInfo($event)"></app-dos>
+<app-dos #comp2 (exit)="showInfo($event)"></app-dos> -->
 
-
-<!-- Top navigation -->
-<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/register-student">
-        <img class="brand-logo" src="assets/logo-positronx-white.svg" alt="positronX.io Logo">
-        <span class="dasboard-text">Dashboard</span>
-    </a>
-</nav>
 
 <!-- Sidebar navigation -->
 <div class="container-fluid">
     <div class="row">
-
         <nav class="col-md-2 d-md-block bg-light sidebar">
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
@@ -56,7 +49,7 @@
                     <!-- Calling SignOut() Api from AuthService -->
                     <li class="nav-item">
                         <a class="nav-link" (click)="authService.SignOut()">
-                            <i class="fas fa-sign-out-alt"></i>Log out
+                            <i class="fas fa-sign-out-alt"></i>{{p2}}
                         </a>
                     </li>
                 </ul>
@@ -71,15 +64,18 @@
                     <h1 class="h2">User Profile</h1>
                 </div>
                 <!-- Show user data when logged in -->
-                <div class="row" *ngIf="authService.userData as user">
+                <!-- <div class="row" *ngIf="authService.userData as user"> -->
+                    <div class="row" *ngIf="authService.userData && authService.userData.displayName != '' " >
                     <div class="col-md-12">
                         <div class="media">
-                            <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" alt="{{user.displayName}}">
+                            <img id="perfilPhoto" class="align-self-start mr-5 img-thumbnail rounded-circle"
+                                src="{{(authService.userData.photoURL) ? authService.userData.photoURL : '/assets/dummy-authService.userData.png'}}"
+                                alt="{{authService.userData.displayName}}">
                             <div class="media-body">
-                                <h1>Hello: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
-                                <p>User ID: <strong>{{user.uid}}</strong></p>
-                                <p>Email: <strong>{{user.email}}</strong></p>
-                                <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
+                                <h1>Hello: <strong>{{(authService.userData.displayName) ? authService.userData.displayName : ' '}}</strong></h1>
+                                <p>User ID: <strong>{{authService.userData.uid}}</strong></p>
+                                <p>Email: <strong>{{authService.userData.email}}</strong></p>
+                                <p>Email Verified: <strong>{{authService.userData.emailVerified}}</strong></p>
                             </div>
                         </div>
                     </div>
@@ -90,3 +86,31 @@
 
     </div>
 </div>
+
+
+<!-- <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>Login</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form class="example-form">
+            <table class="example-full-width" cellspacing="0">
+              <tr>
+                <td>
+                  <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+              <td><mat-form-field class="example-full-width">
+                <input matInput placeholder="Password" [(ngModel)]="password"type="password" name="password" required>
+              </mat-form-field></td>
+            </tr></table>
+          </form>
+          <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button (click)="login()" color="primary">Login</button>
+        </mat-card-actions>
+      </mat-card> -->

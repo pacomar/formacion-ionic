@@ -1,36 +1,35 @@
-<button class="submitButton" (click)="goToList()"><span class="material-icons">
+<button id="btn-secondary" class="btn btn-secondary" (click)="goToList()"><span id="icons" class="material-icons">
     arrow_back
-    </span></button>
+  </span></button>
 <div class="mainContent">
-  <div class="contenBigBox">
-    <div *ngIf="item">
-      <div class="tittleBox">
-        <p>{{ item.name }}</p>
-        <button title="Modify item" pButton type="button" id="modifyButton"
-          (click)="Modify(item.id,item.name,item.longitude, item.latitude, item.openHour, item.closeHour, item.comentarie)"
-          class="submitButton"><span class="material-icons">
-            create
-          </span></button>
-        <button title="Delete item" class="submitButton" type="button" (click)="delete(item.id)"><span class="material-icons">
+  <div *ngIf="item != undefined" class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+    <div id="tittleBox" class="card-header">
+      <p>{{ item.name }}</p>
+      <button id="btn-secondary" class="btn btn-secondary" title="Modify item" pButton type="button"
+        (click)="Modify(item.id,item.name,item.longitude, item.latitude, item.openHour, item.closeHour, item.comentarie)"><span
+          id="icons" class="material-icons">
+          create
+        </span></button>
+      <button title="Delete item" id="btn-secondary" class="btn btn-secondary" type="button"
+        (click)="delete(item.id)"><span id="icons" class="material-icons">
+          delete
+        </span></button>
+    </div>
+    <div id="Body" class="card-body">
+      <p>Longitude: {{ item.longitude }}</p>
+      <p>Latitude: {{ item.latitude }}</p>
+      <p>Opening Hours: {{ item.openHour }}</p>
+      <p>Closing Hours: {{ item.closeHour }}</p>
+      <div class="deleteComBox">
+        <p>Comentarie : {{ item.comentarie }}</p>
+        <button title="Delete comentarie" id="btn-secondary" class="btn btn-secondary" type="button"
+          (click)="delComm(item.id)"><span id="icons" class="material-icons">
             delete
           </span></button>
-      </div>
-      <div class="bodyBox">
-        <p>Longitude: {{ item.longitude }}</p>
-        <p>Latitude: {{ item.latitude }}</p>
-        <p>Opening Hours: {{ item.openHour }}</p>
-        <p>Closing Hours: {{ item.closeHour }}</p>
-        <div class="deleteComBox">
-          <p>Comentarie : {{ item.comentarie }}</p>
-          <button title="Delete comentarie" class="submitButton" type="button" (click)="delComm(item.id)"><span class="material-icons">
-              delete
-            </span></button>
-        </div>
       </div>
     </div>
   </div>
   <br>
-
   <br>
   <form [formGroup]="newShopFrom" (ngSubmit)="onSubmit()">
     <span class="ui-float-label">
@@ -38,10 +37,6 @@
       <label for="float-input">Shop Name</label>
     </span>
     <br>
-    <!-- <label> Shop Name:
-          <br>
-          <input type="text"  pInputText formControlName="shopName">
-        </label> -->
     <label> Opening Hours:
       <br>
       <input type="time" pInputText formControlName="openHour">
@@ -57,15 +52,7 @@
       <input id="float-input" type="text" size="30" formControlName="latitude" pInputText>
       <label for="float-input">Latitude</label>
     </span>
-    <!-- <label> Latitude:
-          <br>
-          <input type="number" formControlName="latitude">
-        </label> -->
     <br>
-    <!-- <label> Longitude:
-          <br>
-          <input type="number" formControlName="longitude">
-        </label> -->
     <span class="ui-float-label">
       <input id="float-input" type="text" size="30" formControlName="longitude" pInputText>
       <label for="float-input">Longitude</label>
@@ -75,13 +62,10 @@
       <br>
       <textarea pInputTextarea size="30" formControlName="comentarie"></textarea>
     </label>
-    <!-- <label> Comentaries:
-          <br>
-          <textarea formControlName="comentarie"></textarea>
-        </label> -->
     <br>
-    <button class="submitButtonModify" type="submit" [disabled]=!newShopFrom.valid> <span class="material-icons">
+    <button id="btn-secondary" class="btn btn-secondary" type="submit" [disabled]=!newShopFrom.valid> <span id="icons"
+        class="material-icons">
         done_outline
-        </span> </button>
+      </span> </button>
   </form>
 </div>

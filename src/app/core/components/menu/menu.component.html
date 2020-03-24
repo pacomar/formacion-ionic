@@ -1,6 +1,40 @@
-<h2>Menu</h2>
+<!-- <h2>Menu</h2>
 <ul>
   <li *ngFor="let link of links">
     <a [routerLink]="link.url" routerLinkActive="active-route">{{link.label}}</a>
   </li>
-</ul>
+</ul> -->
+
+<mat-sidenav-container id="MainContainer">
+  <h2>Menu</h2>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+      <h2>Menu</h2>
+      <a mat-list-item [routerLink]="'/accounts'"> Accounts </a>
+      <a mat-list-item [routerLink]="'/create-account'"> Create Account </a>
+      <a mat-list-item [routerLink]="'/contacts'"> Contacts </a>
+      <a mat-list-item [routerLink]="'/create-contact'"> Create Contact </a>
+      <a mat-list-item [routerLink]="'/activities'"> Activities </a>
+      <a mat-list-item [routerLink]="'/create-activity'"> Create Activity </a>
+      <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+      <mat-nav-list>
+          <!-- <a class="linkMenu" mat-list-item [routerLink]="'/accounts'"> Accounts </a>
+          <a class="linkMenu" mat-list-item [routerLink]="'/create-account'"> Create Account </a>
+          <a class="linkMenu" mat-list-item [routerLink]="'/contacts'"> Contacts </a>
+          <a class="linkMenu" mat-list-item [routerLink]="'/create-contact'"> Create Contact </a>
+          <a class="linkMenu" mat-list-item [routerLink]="'/activities'"> Activities </a>
+          <a class="linkMenu" mat-list-item [routerLink]="'/create-activity'"> Create Activity </a>
+          <a class="linkMenu" mat-list-item (click)="sidenav.toggle()" href="" mat-list-item>Close</a> -->
+          <div *ngFor="let link of links">
+              <a class="linkMenu" mat-list-item [routerLink]="link.url" routerLinkActive="active-route">{{link.label}}</a>
+          </div>
+        </mat-nav-list>
+      <!-- <div style="height: 88vh;">
+  
+        <router-outlet></router-outlet>
+      </div> -->
+    </mat-sidenav-content>
+</mat-sidenav-container>

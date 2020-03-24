@@ -1,5 +1,4 @@
 a {
-  margin: 10px;
   color: white; 
 }
 
@@ -17,4 +16,18 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly; 
+}
+
+
+#router {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 50px;
+  width: 100px;
+  background-color: #424858;
+  border-radius: 10px 10px 10px 10px;
+  border: none; 
+  font-size: 16px;
+  padding: 0px; 
 }
