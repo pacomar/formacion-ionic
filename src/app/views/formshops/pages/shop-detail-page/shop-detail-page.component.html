@@ -1,8 +1,9 @@
-<button id="btn-secondary" class="btn btn-secondary" (click)="goToList()"><span id="icons" class="material-icons">
-    arrow_back
-  </span></button>
+
 <div class="mainContent">
-  <div *ngIf="item != undefined" class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+    <button id="btn-secondary" class="btn btn-secondary" (click)="goToList()"><span id="icons" class="material-icons">
+        arrow_back
+      </span></button>
+  <div id="cardInfo" *ngIf="item != undefined" class="card text-white bg-dark mb-3" style="max-width: 18rem;">
     <div id="tittleBox" class="card-header">
       <p>{{ item.name }}</p>
       <button id="btn-secondary" class="btn btn-secondary" title="Modify item" pButton type="button"
@@ -31,7 +32,7 @@
   </div>
   <br>
   <br>
-  <form [formGroup]="newShopFrom" (ngSubmit)="onSubmit()">
+  <form  id="buscador" [formGroup]="newShopFrom" (ngSubmit)="onSubmit()">
     <span class="ui-float-label">
       <input id="float-input" type="text" size="30" formControlName="shopName" pInputText>
       <label for="float-input">Shop Name</label>

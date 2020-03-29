@@ -1,6 +1,9 @@
+#cardLog {
+  margin: 30px;
+}
+
 #container {
   text-align: center;
-
   position: absolute;
   left: 0;
   right: 0;
@@ -45,11 +48,10 @@ ion-content ion-toolbar {
 #buttonLog {
   margin-left: 98px;
   height: 40px;
+  width: 100px;
 }
 
-#titleUser{
+#titleUser {
   position: relative;
   top: 10px;
 }
-
- 

@@ -1,12 +1,10 @@
 .mainContent {
-  height: 80%;
+  height: 100%;
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  position: relative;
-  top: 50px;
+  // justify-content: center;
+  // align-items: center;
+  flex-direction: row;
 }
 
 .tittleBox {
@@ -106,4 +104,15 @@ textarea {
 p {
   color: white;
   margin-left: 5px;
+}
+
+#buscador {
+  margin: 30px; 
+  visibility: hidden;
+}
+
+#cardInfo {
+  max-width: 18rem;
+  height: 250px;
+  margin: 30px;
 }

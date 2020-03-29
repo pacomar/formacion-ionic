@@ -22,12 +22,11 @@ textarea {
 }
 
 #contenFrom {
-    height: 80%;
-    width: 100%;
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-
+  height: calc(100% - 60px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #icons {

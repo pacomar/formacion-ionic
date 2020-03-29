@@ -1,11 +1,11 @@
-<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+<div id="cardLog" class="card text-white bg-dark mb-3" style="max-width: 18rem;">
     <div id="HeadCard" class="card-header">
         <p id="titleUser">User Profile</p>
         <button class="btn btn-secondary"  id="buttonLog" (click)="authService.SignOut()">
             <p  *ngIf="authService.userData else loggedOut"
                 class="fas fa-sign-out-alt">{{authService.userData.login}}</p>
             <ng-template #loggedOut>
-                <p>log in</p>
+                <p>Log in</p>
             </ng-template>
         </button>
     </div>

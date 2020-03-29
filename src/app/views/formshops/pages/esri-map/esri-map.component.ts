@@ -29,8 +29,8 @@ export class EsriMapComponent implements OnInit, OnDestroy {
 
   @ViewChild("mapViewNode", { static: true }) private mapViewEl: ElementRef;
 
-  private _zoom = 16;
-  private _center: Array<number> = [-3.67, 40.45];
+  private _zoom = 11;
+  private _center: Array<number> = [-17.93, 28.66];
   private _basemap = "dark-gray";
   private _loaded = false;
   private _view: esri.MapView = null;

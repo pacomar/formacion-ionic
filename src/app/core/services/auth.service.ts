@@ -32,7 +32,7 @@ export class AuthService {
                     displayName: user.displayName,
                     photoURL: user.photoURL,
                     emailVerified: user.emailVerified,
-                    login: "log out"
+                    login: "Log out"
                 };
                 this.userData = userD;
                 console.log(this.userData);
@@ -128,7 +128,7 @@ export class AuthService {
             displayName: user.displayName,
             photoURL: user.photoURL,
             emailVerified: user.emailVerified,
-            login: "log out"
+            login: "Log out"
         };
         this.router.navigate([AppURl.AppHome]);
         return userRef.set(userData, {
@@ -146,7 +146,7 @@ export class AuthService {
                 displayName: "",
                 photoURL: "",
                 emailVerified: false,
-                login: "log in"
+                login: "Log in"
             };
             this.userInformation$.emit(changeForm);
             console.log(this.userData);

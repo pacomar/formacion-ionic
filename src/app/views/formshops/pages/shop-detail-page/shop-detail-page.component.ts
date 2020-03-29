@@ -57,6 +57,7 @@ export class ShopDetailPageComponent implements OnInit {
   }
 
   Modify(id, name, longitude, latitude, openHour, closeHour, comentarie) {
+    document.getElementById("buscador").style.visibility = "visible";
     this.newShopFrom = new FormGroup({
       shopName: new FormControl(name),
       openHour: new FormControl(openHour),
@@ -117,6 +118,7 @@ export class ShopDetailPageComponent implements OnInit {
           longitude: new FormControl(''),
           comentarie: new FormControl('')
         })
+        document.getElementById("buscador").style.visibility = "hidden";
         swal("Good job!", "The store was updated!", "success");
       })
       .catch(function (error) {
