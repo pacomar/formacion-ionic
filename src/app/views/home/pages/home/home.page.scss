@@ -34,3 +34,22 @@ ion-content ion-toolbar {
   height: 100px;
   width: 100px;
 }
+
+#HeadCard {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+}
+
+#buttonLog {
+  margin-left: 98px;
+  height: 40px;
+}
+
+#titleUser{
+  position: relative;
+  top: 10px;
+}
+
+ 

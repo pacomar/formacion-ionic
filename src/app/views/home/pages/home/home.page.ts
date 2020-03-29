@@ -16,7 +16,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 export class HomePage implements OnInit, AfterViewInit, OnDestroy {
   p1: number = undefined;
   p2: number = 3;
-  login: string;
+  login: string = "log in";
 
   @ViewChild(DosComponent, { static: true }) component2: DosComponent;
 
@@ -31,17 +31,12 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.p1 = 2;
-    // console.log( this.authService.afs.firestore.doc); 
+   
     console.log(this.authService.userData);
+
+
     this.authService.userInformation$.subscribe(data => {
-      console.log(data); 
       this.authService.userData = data;
-      
-       
-    
-
-
     });
 
   }

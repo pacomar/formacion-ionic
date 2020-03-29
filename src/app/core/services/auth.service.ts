@@ -26,7 +26,16 @@ export class AuthService {
         logged in and setting up null when logged out */
         this.afAuth.authState.subscribe(user => {
             if (user) {
-                this.userData = user;
+                const userD = {
+                    uid: user.uid,
+                    email: user.email,
+                    displayName: user.displayName,
+                    photoURL: user.photoURL,
+                    emailVerified: user.emailVerified,
+                    login: "log out"
+                };
+                this.userData = userD;
+                console.log(this.userData);
                 localStorage.setItem('user', JSON.stringify(this.userData));
                 JSON.parse(localStorage.getItem('user'));
             } else {
@@ -43,6 +52,7 @@ export class AuthService {
                 this.ngZone.run(() => {
                     this.router.navigate([AppURl.AppSuperHero]);
                 });
+
                 this.SetUserData(result.user);
             }).catch((error) => {
                 window.alert(error.message);
@@ -56,6 +66,7 @@ export class AuthService {
                 /* Call the SendVerificaitonMail() function when new user sign
                 up and returns promise */
                 this.SendVerificationMail();
+
                 this.SetUserData(result.user);
             }).catch((error) => {
                 window.alert(error.message);
@@ -101,6 +112,7 @@ export class AuthService {
                 this.ngZone.run(() => {
                     this.router.navigate([AppURl.AppSuperHero]);
                 });
+
                 this.SetUserData(result.user);
             }).catch((error) => {
                 window.alert(error);
@@ -115,7 +127,8 @@ export class AuthService {
             email: user.email,
             displayName: user.displayName,
             photoURL: user.photoURL,
-            emailVerified: user.emailVerified
+            emailVerified: user.emailVerified,
+            login: "log out"
         };
         this.router.navigate([AppURl.AppHome]);
         return userRef.set(userData, {
@@ -132,9 +145,11 @@ export class AuthService {
                 email: "",
                 displayName: "",
                 photoURL: "",
-                emailVerified: false
+                emailVerified: false,
+                login: "log in"
             };
             this.userInformation$.emit(changeForm);
+            console.log(this.userData);
             this.router.navigate([AppURl.AppAuth, AppURl.AppAuthSignIn]);
         });
     }

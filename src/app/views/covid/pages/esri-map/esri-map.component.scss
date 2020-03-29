@@ -2,10 +2,8 @@
 @import url("https://js.arcgis.com/4.12/esri/css/main.css");
 
 .esri-view {
-  height: 90%;
+  height: 100%;
   width: 100%;
-  position: relative;
-  top: 20px;
 }
 
 .menu {
@@ -39,4 +37,13 @@ select {
 .esri-view-height-less-than-medium .esri-popup__main-container {
   max-height: 300px;
   background: red !important;
+}
+
+#indicator {
+  position: absolute;
+  right: 10px;
+  margin: 10px;
+  height: 40px;
+  width: 310px;
+  background: #353335
 }

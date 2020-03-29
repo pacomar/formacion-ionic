@@ -24,13 +24,17 @@ export const AppURl = {
     AppSuperHeroList: 'list',
     AppSuperHeroDetail: 'detail/:id',
 
-    //Background Shops
+    //Shops
     AppFormBackgroundShops: 'back-shops',
     AppFormBackgroundShopsRoot: '',
     AppFormShops: 'form-shops',
     AppShopList: 'shops-list',
     AppShopMap: 'shops-map',
-    AppShopDetail: 'detail/:id'
+    AppShopDetail: 'detail/:id',
+
+    //Covid
+    AppCovid : 'covid',
+    AppCovidRoot: '',
 
 
 };

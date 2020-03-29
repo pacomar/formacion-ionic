@@ -14,6 +14,7 @@ const routes: Routes = [
     path: AppURl.AppSuperHero, loadChildren: () => import('../views/super-hero/super-hero.module')
       .then(m => m.SuperHeroModule), canActivate: [AuthGuard]
   },
+  { path: AppURl.AppCovid, loadChildren: () => import('../views/covid/covid.module').then(m => m.CovidModule) },
 ];
 
 
